@@ -1,0 +1,65 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% load core_tag %}
+{% block navbar %}
+    <div id="left-navbar" class="left-menu-block hidden-xs hidden-sm">
+        <div class="left-menu-close-block">
+            <button id="close-left-navbar" class="btn btn-side-bar">
+                <i class="fa fa-align-left caret-my" aria-hidden="true"></i>
+                ЗАКРИТИ МЕНЮ
+            </button>
+        </div>
+        <div id="menu" class="dop-menu-block">
+            <ul class="cd-accordion-menu animated">
+
+                <li><a href="/library/textbooks">Підручники</a></li>
+
+                <li><a href="/library/monographs">Монографії</a></li>
+
+                <li><a href="/library/school-guides">Навчальні посібники</a></li>
+
+                <li><a href="/library/methodical-manual">Методичні рекомендації</a></li>
+
+                <li><a href="/library/dissertations">Дисертації</a></li>
+
+                <li><a href="http://eu.univ.kiev.ua/">Енциклопедія університету</a></li>
+
+                <li><a href="http://www.library.univ.kiev.ua/ukr/title4.php3">Бібліотека університету</a></li>
+
+                <li><a href="/scientific-search-engines">Науково-пошукові системи</a></li>
+
+                <li><a href="/scientific-libraries">Наукові бібліотеки</a></li>
+
+                <li><a href="/self-education">Самоосвіта</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="open-btn-block">
+        <button id="open-left-navbar" class="btn btn-side-bar open-block">
+            <i class="fa fa-align-justify caret-my" aria-hidden="true"></i>
+            <span>MENU</span>
+        </button>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">{{ student.name }}</h2>
+                        {% for p in student.get_res %}
+                        <div class="library">
+                            <p class="library-text"><strong>1. D.A. Klyushin, S.I. Lyashko, D.A. Nomirovskii, Yu.I. Petunin, V.V. Semenov</strong><a href=""> Generalized Solutions of Operator Equations and Extreme Elements</a> — New York: Springer Science+Business Media, LLC, 2012. — 225 p.</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% load i18n %}
+{% extends "core/article.html" %}
+{% block content %}
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">{% trans "Адміністрація факультету" %}</h2>
+                        <div class="card-block">
+                        {% for duet in result %}
+                            <div class="row">
+                            	{% for p in duet%}
+                                <div class="col-sm-6">
+                                    <div class="information-card">
+                                        <div class="photo-block">
+                                            <img src="/media/{{p.photo.url }}" alt="" class="card-image">
+                                        </div>
+                                        <div class="info-text-block">
+                                            <a href="{{ p.domen }}" class="header-text name">{{ p.name }}</a>
+                                            <p class="info-name">{{ p.position }}</p>
+                                            <p class="info-room">{{ p.adress }}</p>
+                                            <p class="info">{% trans "Телефон" %}:<span class="phone">{{ p.phone }}</span></p>
+                                            <p class="info email">Email:<span class="mail">{{ p.email }}</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

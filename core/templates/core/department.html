@@ -1,0 +1,48 @@
+{% load i18n %}
+{% extends "core/article.html" %}
+{% block content %}
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">{{ departments.name }}</h2>
+
+                        <p class="text-with-information">{% trans "Напрямки наукових досліджень" %}:</p>
+                        {{ departments.reserch }}
+                        <h2 class="header-text header-text-small center-block">{% trans "Штат кафедри теорії та технології програмування" %}</h2>
+
+                        <table class="table table-striped information-table">
+                            <tr>
+                                <th>Ім'я</th>
+                                <th class="hidden-xs">{% trans "Телефон" %}</th>
+                                <th>{% trans "Кімната" %}</th>
+                                <th class="hidden-xs">E-mail</th>
+                            </tr>
+                            {% for p in departments.professor %}
+                            <tr>
+                                <td><a href="/cybernetics/departments.ttp.nikitchenko.html">{{ p.name }}</a></td>
+                                <td class="hidden-xs">{{ p.phone }}</td>
+                                <td>{{ p.adress }}</td>
+                                <td class="hidden-xs"></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+
+                        <h2 class="header-text header-text-small center-block">{% trans "Контакти" %}</h2>
+
+                        <ol class="list">
+                            <li class="text-list"><strong class="margin-strong-2">{% trans "Адреса" %}:</strong>{{ departments.adress }}</li>
+                            <li class="text-list"><strong class="margin-strong-2">{% trans "Телефон" %}:</strong>{{ departments.phone }}</li>
+                            <li class="text-list"><strong class="margin-strong-2">Web:</strong><a href="{{ departments.domen }}">{{ departments.domen }}</a></li>
+                            <li class="text-list"><strong class="margin-strong-2">Email:</strong>{{ departments.email }}</li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

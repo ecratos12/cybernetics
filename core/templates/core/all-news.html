@@ -1,0 +1,56 @@
+{% load i18n %}
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<div class="site-overlay visible-xs-block visible-sm-block"></div>
+
+<div id="container" class="mobile-menu visible-xs-block visible-sm-block">
+    <a href="/cybernetics/index.html" class="logo-mob">
+        <img src="img/logo.png" class="logo-m-img" alt="">
+        <h2 class="logo-m-text">{% trans "Факультет комп'ютерних наук та кібернетики" %}</h2>
+    </a>
+    <div class="menu-btn"><img src="img/menu-icon.png" alt="">
+        <span class="menu-text">menu</span></div>
+</div>
+
+
+
+<header class="mobile-first-screen">
+
+</header>
+
+
+<div class="content">
+
+    <div class="news">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="header-news center-block fade-bottom">
+                        <h2 class="header-title slide-bottom">{% trans "Новини" %}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for new in news %}
+                <div class="col-sm-4">
+                    <div class="news-block center-block">
+                        <a href="news/{{ new.id }}">
+                            <div class="image-block">
+                                <img src="{{ new.photo.url }}" class="news-image" alt="">
+                            </div>
+                            <h3 class="header-title">{{ new.title }}</h3>
+                        </a>
+
+                        <p class="date">{{ new.pub_date }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

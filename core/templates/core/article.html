@@ -1,0 +1,106 @@
+{% load i18n %}
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% load core_tag %}
+{% block navbar %}
+    <div id="left-navbar" class="left-menu-block hidden-xs hidden-sm">
+        <div class="left-menu-close-block">
+            <button id="close-left-navbar" class="btn btn-side-bar">
+                <i class="fa fa-align-left caret-my" aria-hidden="true"></i>
+                {% trans "ЗАКРИТИ МЕНЮ" %}
+            </button>
+        </div>
+        <div id="menu" class="dop-menu-block">
+            <ul class="cd-accordion-menu animated">
+
+                <li><a href="/deans-welcome">{% trans "Привітання Декана" %}</a></li>
+
+
+                <li class="has-children">
+                    <input type="checkbox" name="group-2" id="group-2">
+                    <label for="group-2"><a href="/history" class="no-style">{% trans "Історія факультету" %}</a></label>
+
+                    <ul>
+                        <li><a href="/history/personality">{% trans "Особистості" %}</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-children">
+                    <input type="checkbox" name="group-3" id="group-3">
+                    <label for="group-3"><a href="/departments" class="no-style">{% trans "Кафедри" %}</a></label>
+
+                    <ul>
+                        <li><a href="/departments/1">{% trans "Кафедра Обчислювальної математики" %}</a></li>
+                        <li><a href="/departments/2">{% trans "Кафедра Моделювання складних систем" %}</a></li>
+                        <li><a href="/departments/3">{% trans "Кафедра Дослідження операцій" %}</a></li>
+                        <li><a href="/departments/4">{% trans "Кафедра Системного аналізу та теорії прийняття рішень" %}</a></li>
+                        <li><a href="/departments/5">{% trans "Кафедра Прикладної статистики" %}</a></li>
+                        <li><a href="/departments/6">{% trans "Кафедра Математичної інформатики" %}</a></li>
+                        <li><a href="/departments/7">{% trans "Кафедра Теоретичної кібернетики" %}</a></li>
+                        <li><a href="/departments/8">{% trans "Кафедра Теорії та технології програмування" %}</a></li>
+                        <li><a href="/departments/9">{% trans "Кафедра Інформаційних систем" %}</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-children">
+                    <input type="checkbox" name="group-4" id="group-4">
+                    <label for="group-4"><a href="/student-organizations" class="no-style">{% trans "Студентські організації" %}</a></label>
+
+                    <ul>
+                        <li><a href="/sp">{% trans "Студентський парламент" %}</a></li>
+                        <li><a href="/scsp">{% trans "Наукове товариство" %}</a></li>
+                        <li><a href="/su">{% trans "Профбюро студентів" %}</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/administration-faculty">{% trans "Адміністрація" %}</a></li>
+
+                <li><a href="/cooperation">{% trans "Співробітництво" %}</a></li>
+
+                <li><a href="/employment">{% trans "Працевлаштування" %}</a></li>
+
+                <li><a href="/hostel">{% trans "Гуртожиток" %}</a></li>
+
+                <li><a href="/student-life">{% trans "Студентське життя" %}</a></li>
+
+                <li><a href="/gallery/photo">{% trans "Фотогалерея" %}</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="open-btn-block">
+        <button id="open-left-navbar" class="btn btn-side-bar open-block">
+            <i class="fa fa-align-justify caret-my" aria-hidden="true"></i>
+            <span>MENU</span>
+        </button>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">{{ article.title}}</h2>
+
+                        <div class="block-photo">
+                            {% for photo in article.image.all %}
+                            <img src="/{{ photo.photo.url }}" class="image-information" alt="">
+
+                            <div class="info-photo">
+                                <p>{{ photo.alt }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {{ article.text|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

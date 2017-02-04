@@ -1,0 +1,64 @@
+{% load i18n %}
+а{% extends "core/base.html" %}
+{% load staticfiles %}
+{% load core_tag %}
+{% block navbar %}
+    <div id="left-navbar" class="left-menu-block hidden-xs hidden-sm">
+        <div class="left-menu-close-block">
+            <button id="close-left-navbar" class="btn btn-side-bar">
+                <i class="fa fa-align-left caret-my" aria-hidden="true"></i>
+                {% trans "ЗАКРИТИ МЕНЮ" %}
+            </button>
+        </div>
+        <div id="menu" class="dop-menu-block">
+            <ul class="cd-accordion-menu animated">
+
+                <li><a href="/abiturient">{% trans "Сторінка абітурієнта" %}</a></li>
+
+                <li><a href="/degree/1">{% trans "Освітній ступінь "Бакалавр"" %}</a></li>
+
+                <li><a href="/degree/3">{% trans "Освітній ступінь "Магістр"" %}</a></li>
+
+                <li><a href="/degree/4">{% trans "Аспірантура" %}</a></li>
+
+                <li><a href="">{% trans "Докторантура" %}</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="open-btn-block">
+        <button id="open-left-navbar" class="btn btn-side-bar open-block">
+            <i class="fa fa-align-justify caret-my" aria-hidden="true"></i>
+            <span>MENU</span>
+        </button>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">{{ article.title}}</h2>
+
+                        <div class="block-photo">
+                            {% for photo in article.image.all %}
+                            <img src="{{ photo.photo.url }}" class="image-information" alt="">
+
+                            <div class="info-photo">
+                                <p>{{ photo.alt }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {{ article.text|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">Розклад занять</h2>
+                        <a href="/cybernetics/documents//1_semester_16-17.xlsx" class="documents-link">Розклад занять на 1 семестр 2016/2017 навчального року</a>
+                        <div class="select-block">
+                            <a id="open-schedule" class="btn btn-primary btn-select btn-select-light">
+                                <input type="hidden" class="btn-select-input" id="" name="" value="" />
+                                <span class="btn-select-value">Оберіть групу</span>
+                                <span class='btn-select-arrow glyphicon glyphicon-chevron-down'></span>
+                                <ul>
+                                    {% for g in grup %}
+                                    <li>{{ g.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </a>
+                        </div>
+                        <p class="weekday-text hidden">Верхній тиждень</p>
+                        <div class="schedule-table hidden">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

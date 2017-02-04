@@ -1,0 +1,35 @@
+{% load i18n %}
+{% extends "core/article.html" %}
+{% block content %}
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">{% trans "Студентське життя" %}</h2>
+                        <div class="card-block">
+                        {% for p in student %}
+                                <div class="col-sm-12s">
+                                    <div class="card-center center-block">
+                                        <div class="information-card">
+                                            <div class="photo-block">
+                                                <img src="{{p.photo}}" alt="" class="card-image">
+                                            </div>
+                                            <div class="info-text-block">
+                                                <a href="" class="header-text name">{{ p.name }}</a>
+                                                <p class="info-name">— {{p.text}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,472 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cybernetics Faculty</title>
+    <!--CSS-->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pickmeup.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+    <style type="text/css">
+        /*
+         * PreLoader
+         * css from http://joaopereirawd.github.io/fakeLoader.js/
+         */
+        .spinner1{width:40px;height:40px;position:relative}.double-bounce1,.double-bounce2{width:100%;height:100%;border-radius:50%;background-color:#fff;opacity:.6;position:absolute;top:0;left:0;-webkit-animation:bounce 2s infinite ease-in-out;animation:bounce 2s infinite ease-in-out}.double-bounce2{-webkit-animation-delay:-1s;animation-delay:-1s}@-webkit-keyframes bounce{0%,100%{-webkit-transform:scale(0)}50%{-webkit-transform:scale(1)}}@keyframes bounce{0%,100%{transform:scale(0);-webkit-transform:scale(0)}50%{transform:scale(1);-webkit-transform:scale(1)}}.spinner2{width:40px;height:40px;position:relative}.container1>div,.container2>div,.container3>div{width:6px;height:6px;background-color:#fff;border-radius:100%;position:absolute;-webkit-animation:bouncedelay 1.2s infinite ease-in-out;animation:bouncedelay 1.2s infinite ease-in-out;-webkit-animation-fill-mode:both;animation-fill-mode:both}.spinner2 .spinner-container{position:absolute;width:100%;height:100%}.container2{-webkit-transform:rotateZ(45deg);transform:rotateZ(45deg)}.container3{-webkit-transform:rotateZ(90deg);transform:rotateZ(90deg)}.circle1{top:0;left:0}.circle2{top:0;right:0}.circle3{right:0;bottom:0}.circle4{left:0;bottom:0}.container2 .circle1{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.container3 .circle1{-webkit-animation-delay:-1s;animation-delay:-1s}.container1 .circle2{-webkit-animation-delay:-.9s;animation-delay:-.9s}.container2 .circle2{-webkit-animation-delay:-.8s;animation-delay:-.8s}.container3 .circle2{-webkit-animation-delay:-.7s;animation-delay:-.7s}.container1 .circle3{-webkit-animation-delay:-.6s;animation-delay:-.6s}.container2 .circle3{-webkit-animation-delay:-.5s;animation-delay:-.5s}.container3 .circle3{-webkit-animation-delay:-.4s;animation-delay:-.4s}.container1 .circle4{-webkit-animation-delay:-.3s;animation-delay:-.3s}.container2 .circle4{-webkit-animation-delay:-.2s;animation-delay:-.2s}.container3 .circle4{-webkit-animation-delay:-.1s;animation-delay:-.1s}@-webkit-keyframes bouncedelay{0%,100%,80%{-webkit-transform:scale(0)}40%{-webkit-transform:scale(1)}}@keyframes bouncedelay{0%,100%,80%{transform:scale(0);-webkit-transform:scale(0)}40%{transform:scale(1);-webkit-transform:scale(1)}}.spinner3{width:40px;height:40px;position:relative;-webkit-animation:rotate 2s infinite linear;animation:rotate 2s infinite linear}.dot1,.dot2{width:60%;height:60%;display:inline-block;position:absolute;top:0;background-color:#fff;border-radius:100%;-webkit-animation:bounce 2s infinite ease-in-out;animation:bounce 2s infinite ease-in-out}.dot2{top:auto;bottom:0;-webkit-animation-delay:-1s;animation-delay:-1s}@-webkit-keyframes rotate{100%{-webkit-transform:rotate(360deg)}}@keyframes rotate{100%{transform:rotate(360deg);-webkit-transform:rotate(360deg)}}@-webkit-keyframes bounce{0%,100%{-webkit-transform:scale(0)}50%{-webkit-transform:scale(1)}}@keyframes bounce{0%,100%{transform:scale(0);-webkit-transform:scale(0)}50%{transform:scale(1);-webkit-transform:scale(1)}}.spinner4{width:30px;height:30px;background-color:#fff;-webkit-animation:rotateplane 1.2s infinite ease-in-out;animation:rotateplane 1.2s infinite ease-in-out}@-webkit-keyframes rotateplane{0%{-webkit-transform:perspective(120px)}50%{-webkit-transform:perspective(120px) rotateY(180deg)}100%{-webkit-transform:perspective(120px) rotateY(180deg) rotateX(180deg)}}@keyframes rotateplane{0%{transform:perspective(120px) rotateX(0deg) rotateY(0deg);-webkit-transform:perspective(120px) rotateX(0deg) rotateY(0deg)}50%{transform:perspective(120px) rotateX(-180.1deg) rotateY(0deg);-webkit-transform:perspective(120px) rotateX(-180.1deg) rotateY(0deg)}100%{transform:perspective(120px) rotateX(-180deg) rotateY(-179.9deg);-webkit-transform:perspective(120px) rotateX(-180deg) rotateY(-179.9deg)}}.spinner5{width:32px;height:32px;position:relative}.cube1,.cube2{background-color:#fff;width:10px;height:10px;position:absolute;top:0;left:0;-webkit-animation:cubemove 1.8s infinite ease-in-out;animation:cubemove 1.8s infinite ease-in-out}.cube2{-webkit-animation-delay:-.9s;animation-delay:-.9s}@-webkit-keyframes cubemove{25%{-webkit-transform:translateX(42px) rotate(-90deg) scale(0.5)}50%{-webkit-transform:translateX(42px) translateY(42px) rotate(-180deg)}75%{-webkit-transform:translateX(0px) translateY(42px) rotate(-270deg) scale(0.5)}100%{-webkit-transform:rotate(-360deg)}}@keyframes cubemove{25%{transform:translateX(42px) rotate(-90deg) scale(0.5);-webkit-transform:translateX(42px) rotate(-90deg) scale(0.5)}50%{transform:translateX(42px) translateY(42px) rotate(-179deg);-webkit-transform:translateX(42px) translateY(42px) rotate(-179deg)}50.1%{transform:translateX(42px) translateY(42px) rotate(-180deg);-webkit-transform:translateX(42px) translateY(42px) rotate(-180deg)}75%{transform:translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);-webkit-transform:translateX(0px) translateY(42px) rotate(-270deg) scale(0.5)}100%{transform:rotate(-360deg);-webkit-transform:rotate(-360deg)}}.spinner6{width:50px;height:30px;text-align:center}.spinner6>div{background-color:#fff;height:100%;width:6px;margin-left:2px;display:inline-block;-webkit-animation:stretchdelay 1.2s infinite ease-in-out;animation:stretchdelay 1.2s infinite ease-in-out}.spinner6 .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.spinner6 .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}.spinner6 .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}.spinner6 .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}@-webkit-keyframes stretchdelay{0%,100%,40%{-webkit-transform:scaleY(0.4)}20%{-webkit-transform:scaleY(1)}}@keyframes stretchdelay{0%,100%,40%{transform:scaleY(0.4);-webkit-transform:scaleY(0.4)}20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}.spinner7{width:90px;height:30px;text-align:center}.spinner7>div{background-color:#fff;height:15px;width:15px;margin-left:3px;border-radius:50%;display:inline-block;-webkit-animation:stretchdelay .7s infinite ease-in-out;animation:stretchdelay .7s infinite ease-in-out}.spinner7 .circ2{-webkit-animation-delay:-.6s;animation-delay:-.6s}.spinner7 .circ3{-webkit-animation-delay:-.5s;animation-delay:-.5s}.spinner7 .circ4{-webkit-animation-delay:-.4s;animation-delay:-.4s}.spinner7 .circ5{-webkit-animation-delay:-.3s;animation-delay:-.3s}@-webkit-keyframes stretchdelay{0%,100%,40%{-webkit-transform:translateY(-10px)}20%{-webkit-transform:translateY(-20px)}}@keyframes stretchdelay{0%,100%,40%{transform:translateY(-10px);-webkit-transform:translateY(-10px)}20%{transform:translateY(-20px);-webkit-transform:translateY(-20px)}}
+        .fl {margin: 50vh 50vw;}
+    </style>
+
+    <!--JS-->
+    <script src="{% static 'js/settings/jquery-2.0.0.min.js'%}"></script>
+    <script src="{% static 'js/settings/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/settings/mobile-detect.min.js'%}"></script>
+    <script src="{% static 'js/settings/jquery.fade-this.js'%}"></script>
+    <script src="{% static 'js/settings/pushy.min.js'%}"></script>
+    <script src="{% static 'js/settings/head-menu-dd.min.js'%}"></script>
+    <script src="{% static 'js/settings/slick.js'%}"></script>
+    <script src="{% static 'js/jq-desktop-tablet.js'%}"></script>
+    <script src="{% static 'js/settings/pickmeup.js'%}"></script>
+        <script src="{% static 'js/settings/lightgallery.js'%}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script src="{% static 'js/settings/lg-thumbnail.min.js'%}"></script>
+    <script src="{% static 'js/settings/lg-fullscreen.min.js'%}"></script>
+    <script src="{% static 'js/main.js'%}"></script>
+
+
+</head>
+<body class="information-link">
+
+<div class="fakeloader"></div>
+<script type="text/javascript">
+    (function(b){b.fn.fakeLoader=function(m){var f=b.extend({timeToHide:1200,pos:"fixed",top:"0px",left:"0px",width:"100%",height:"100%",zIndex:"999",bgColor:"#2ecc71",spinner:"spinner7",imagePath:""},m);var l='<div class="fl spinner1"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>';var k='<div class="fl spinner2"><div class="spinner-container container1"><div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div></div><div class="spinner-container container2"><div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div></div><div class="spinner-container container3"><div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div></div></div>';var j='<div class="fl spinner3"><div class="dot1"></div><div class="dot2"></div></div>';var i='<div class="fl spinner4"></div>';var h='<div class="fl spinner5"><div class="cube1"></div><div class="cube2"></div></div>';var g='<div class="fl spinner6"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>';var e='<div class="fl spinner7"><div class="circ1"></div><div class="circ2"></div><div class="circ3"></div><div class="circ4"></div></div>';var d=b(this);var c={position:f.pos,width:f.width,height:f.height,top:f.top,left:f.left};d.css(c);d.each(function(){var n=f.spinner;switch(n){case"spinner1":d.html(l);break;case"spinner2":d.html(k);break;case"spinner3":d.html(j);break;case"spinner4":d.html(i);break;case"spinner5":d.html(h);break;case"spinner6":d.html(g);break;case"spinner7":d.html(e);break;default:d.html(l)}if(f.imagePath!=""){d.html('<div class="fl"><img src="'+f.imagePath+'"></div>');a()}});setTimeout(function(){b(d).fadeOut()},f.timeToHide);return this.css({backgroundColor:f.bgColor,zIndex:f.zIndex})};function a(){var c=b(window).width();var e=b(window).height();var d=b(".fl").outerWidth();var f=b(".fl").outerHeight();b(".fl").css({position:"absolute",left:(c/2)-(d/2),top:(e/2)-(f/2)})}b(window).load(function(){a();b(window).resize(function(){a()})})}(jQuery));
+    $(".fakeloader").fakeLoader({
+        timeToHide:500, //Time in milliseconds for fakeLoader disappear
+        zIndex:"999999",//Default zIndex
+        spinner:"spinner3",//Options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7'
+        bgColor:"#05dcb9" //Hex, RGB or RGBA colors
+        //imagePath:"yourPath/customizedImage.gif" //If you want can you insert your custom image
+    });
+</script>
+
+<nav class="navbar navbar-default  nav-cybernetics hidden-sm hidden-xs">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="row">
+                <div class="col-sm-12 no-padding">
+                    <div class="logo-block">
+                        <div class="logo-left-block">
+                            <div class="logo-header active-logo">
+                                <a href="/"><h2 class="header-title">{% trans "ФАКУЛЬТЕТ КОМП'ЮТЕРНИХ НАУК ТА КІБЕРНЕТИКИ" %}</h2></a>
+                            </div>
+                            <div class="logo-img">
+                                <a href="/">
+                                    <img src="{% static 'img/logo-new.png'%}"
+                                 class="logo" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="logo-right-header">
+                            <h3 class="header-title-text">{% trans "Київський національний університет <br />імені Тараса Шевченка" %}</h3>
+                        </div>
+                    </div>
+                    <div class="right-nav-block">
+                        <div class="search-language-login">
+                            <a href="#" class="sll-text">En</a>
+                            <a href="#" class="sll-text">Ukr</a>
+
+                            <form class="navbar-form search-form" role="search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-search" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button id="search" class="btn btn-default btn-search" type="button"><i
+                                                class="fa fa-search icon-search"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="link-to-other-page">
+                            <ul class="dropdown">
+                                <li class="dropdown-top">
+                                    <a class="dropdown-top" href="/about-faculty">{% trans "Про факультет" %}</a>
+                                </li>
+                                <li class="dropdown-top">
+                                    <a class="dropdown-top" href="/admission">{% trans "Вступ" %}</a>
+                                </li>
+                                <li class="dropdown-top">
+                                    <a class="dropdown-top" href="/study">{% trans "Навчання" %}</a>
+                                </li>
+                                <li class="dropdown-top">
+                                    <a class="dropdown-top" href="/library">{% trans "Бібліотека" %}</a>
+                                </li>
+                                <li class="dropdown-top">
+                                    <a class="dropdown-top" href="/programming">{% trans "Олімпіади" %}</a>
+                                </li>
+                                <li class="dropdown-top">
+                                    <a class="dropdown-top" href="/research">{% trans "Наука" %}</a>
+                                </li>
+                                <li class="dropdown-top">
+                                    <a class="dropdown-top" href="/contacts">{% trans "Контакти" %}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="social-link hidden-md">
+                            <div class="link">
+                                <a href="http://vk.comFaculty">
+                                    <i class="fa fa-vk cp-icon" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div class="link">
+                                <a href="http://facebook.comFaculty">
+                                    <i class="fa fa-facebook cp-icon" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div class="link">
+                                <a href="http://youtube.com/userFaculty">
+                                    <i class="fa fa-youtube-play cp-icon" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block navbar %}
+    {% endblock %}
+</nav>
+
+<nav class="pushy pushy-left visible-xs-block visible-sm-block">
+
+    <div class="close-block">
+        <button class="menu-btn close-btn"><img src="{% static 'img/close-btn.png'%}" alt=""></button>
+        <a href="#" class="sll-text-mobile">En</a>
+        <a href="#" class="sll-text-mobile">Ukr</a>
+    </div>
+
+    <div class="search-block">
+        <form class="navbar-form search-form" role="search">
+            <div class="input-group input-group-search">
+                <input type="text" class="form-control input-search" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button id="search-mobile" class="btn btn-default btn-search btn-src-mobile" type="button"><i
+                            class="fa fa-search icon-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <div class="accordion-menu">
+        <ul class="cd-accordion-menu mobile-accordion animated">
+
+            <li class="has-children">
+                <input type="checkbox" name="group-10" id="group-10">
+                <label for="group-10"><a href="/about-faculty" class="dop-links">{% trans "Про факультет" %}</a></label>
+
+                <ul>
+                    <li><a href="/deans-welcome">{% trans "Привітання Декана" %}</a></li>
+
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-11" id="sub-group-11">
+                        <label for="sub-group-11"><a href="/history" class="dop-links">{% trans "Історія факультету" %}</a></label>
+
+                        <ul>
+                            <li><a href="/personality">{% trans "Особистості" %}</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-12" id="sub-group-12">
+                        <label for="sub-group-12"><a href="/departments" class="dop-links">{% trans "Кафедри" %}</a></label>
+
+                        <ul>
+                            <li><a href="/info">{% trans "Кафедра Обчислювальної математики" %}</a></li>
+                            <li><a href="/info">{% trans "Кафедра Моделювання складних систем" %}</a></li>
+                            <li><a href="/info">{% trans "Кафедра Дослідження операцій" %}</a></li>
+                            <li><a href="/info">{% trans "Кафедра Системного аналізу та теорії прийняття рішень" %}</a></li>
+                            <li><a href="/info">{% trans "Кафедра Прикладної статистики" %}</a></li>
+                            <li><a href="/info">{% trans "Кафедра Математичної інформатики" %}</a></li>
+                            <li><a href="/info">{% trans "Кафедра Теоретичної кібернетики" %}</a></li>
+                            <li><a href="/departments.ttp">{% trans "Кафедра Теорії та технології програмування" %}</a></li>
+                            <li><a href="/info">{% trans "Кафедра Інформаційних систем" %}</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-13" id="sub-group-13">
+                        <label for="sub-group-13"><a href="/student-organizations" class="dop-links">{% trans "Студентські організації" %}</a></label>
+
+                        <ul>
+                            <li><a href="/sp">{% trans "Студентський парламент" %}</a></li>
+                            <li><a href="/scsp">{% trans "Наукове товариство" %}</a></li>
+                            <li><a href="/su">{% trans "Профбюро студентів" %}</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/administration-faculty">{% trans "Адміністрація" %}</a></li>
+
+                    <li><a href="/cooperation">{% trans "Співробітництво" %}</a></li>
+
+                    <li><a href="/employment">{% trans "Працевлаштування" %}</a></li>
+
+                    <li><a href="/hostel">{% trans "Гуртожиток" %}</a></li>
+                </ul>
+            </li>
+
+            <li class="has-children">
+                <input type="checkbox" name="group-13" id="group-13">
+                <label for="group-13"><a href="/admission" class="dop-links">{% trans "Абітурієнтам" %}</a></label>
+
+                <ul>
+                    <li><a href="/page-entrant">{% trans "Сторінка абітурієнта" %}</a></li>
+                    <li><a href="/bachelor-degree">{% trans "ОКР "Бакалавр"" %}</a></li>
+                    <li><a href="/master-degree">{% trans "ОКР "Магістр"" %}</a></li>
+                    <li><a href="/postgraduate-studies">{% trans "Аспірантура" %}</a></li>
+                    <li><a href="/doctoral-studies">{% trans "Докторантура" %}</a></li>
+                </ul>
+            </li>
+
+            <li class="has-children">
+                <input type="checkbox" name="group-14" id="group-14">
+                <label for="group-14"><a href="/info" class="dop-links">{% trans "Навчання" %}</a></label>
+
+                <ul>
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-15" id="sub-group-15">
+                        <label for="sub-group-15">{% trans "Рівні освіти" %}</label>
+
+                        <ul>
+                            <li class="has-children">
+                                <input type="checkbox" name="sub-group-level-3" id="sub-group-level-3">
+                                <label for="sub-group-level-3">{% trans "Бакалаврат" %}</label>
+
+                                <ul>
+                                    <li><a href="#">{% trans "Дисципліни по вибору" %}</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has-children">
+                                <input type="checkbox" name="sub-group-level-3-1-1" id="sub-group-level-3-1-1">
+                                <label for="sub-group-level-3-1-1">{% trans "Магістратура" %}</label>
+
+                                <ul>
+                                    <li><a href="#">{% trans "Дисципліни по вибору" %}</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has-children">
+                                <input type="checkbox" name="sub-group-level-3-1-1-1" id="sub-group-level-3-1-1-1">
+                                <label for="sub-group-level-3-1-1-1">{% trans "Аспірантура" %}</label>
+
+                                <ul>
+                                    <li><a href="#">{% trans "Дисципліни по вибору" %}</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has-children">
+                                <input type="checkbox" name="sub-group-level-3-1-1-1-1" id="sub-group-level-3-1-1-1-1">
+                                <label for="sub-group-level-3-1-1-1-1">{% trans "Докторантура" %}</label>
+
+                                <ul>
+                                    <li><a href="#">{% trans "Дисципліни по вибору" %}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-16" id="sub-group-16">
+                        <label for="sub-group-16">{% trans "Бібліотека" %}</label>
+                        <ul>
+                            <li><a href="#">{% trans "Підручники" %}</a></li>
+                            <li><a href="#">{% trans "Монографії" %}</a></li>
+                            <li><a href="#">{% trans "Навчальні посібники" %}</a></li>
+                            <li><a href="#">{% trans "Методичні рекомендації" %}</a></li>
+                            <li><a href="#">{% trans "Дисертації" %}</a></li>
+                            <li><a href="#">{% trans "Енциклопедія університету" %}</a></li>
+                            <li><a href="#">{% trans "Бібліотека університету" %}</a></li>
+                            <li><a href="#">{% trans "Науково-пошукові системи" %}</a></li>
+                            <li><a href="#">{% trans "Наукові бібліотеки" %}</a></li>
+                            <li><a href="#">{% trans "Наукові організації" %}</a></li>
+                            <li><a href="#">{% trans "Самоосвіта" %}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-17" id="sub-group-17">
+                        <label for="sub-group-17">{% trans "Олімпіади" %}</label>
+                        <ul>
+                            <li><a href="#">{% trans "Всеукраїнські олімпіади" %}</a></li>
+                            <li><a href="#">{% trans "Півфінал чемпіонату світу" %}</a></li>
+                            <li><a href="#">{% trans "Фінал чемпіонату світу" %}</a></li>
+                            <li><a href="#">{% trans "Інші змагання" %}</a></li>
+                            <li><a href="#">E-olimp</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="has-children">
+                <input type="checkbox" name="group-15" id="group-15">
+                <label for="group-15"><a href="/research" class="dop-links">{% trans "Наука" %}</a></label>
+
+                <ul>
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-18" id="sub-group-18">
+                        <label for="sub-group-18"><a href="/research-groups" class="dop-links">{% trans "Дослідницькі групи" %}</a></label>
+                        <ul>
+                            <li><a href="/info">{% trans "НДС "Проблем системного аналізу"" %}</a></li>
+                            <li><a href="/info">{% trans "НДС "Проблем програмування"" %}</a></li>
+                            <li><a href="/research-groups.tc">{% trans "НДС "Теоретичної кібернетики"" %}</a></li>
+                            <li><a href="/info">{% trans "НДЛ "Ймовірнісно-статистичних методів"" %}</a></li>
+                            <li><a href="/info">{% trans "НДЛ "Обчислювальних методів в механіці суцільних середовищ"" %}</a></li>
+                            <li><a href="/info">{% trans "НДЛ "Моделювання та оптимізації"" %}</a></li>
+                            <li><a href="/info">{% trans "НДЛ "Високопродуктивних систем обробки інформації"" %}</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-19" id="sub-group-19">
+                        <label for="sub-group-19">{% trans "Спеціалізовані вчені ради" %}</label>
+
+                        <ul>
+                            <li><a href="/info">{% trans "Спецрада: Д 26.001.09" %}</a></li>
+                            <li><a href="/info">{% trans "Спецрада: Д 26.001.35" %}</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="http://rmn.knu.ua/">{% trans "Рада молодих вчених" %}</a></li>
+
+                    <li><a href="http://science.univ.kiev.ua/">{% trans "НДЧ Університету" %}</a></li>
+
+                    <li><a href="/info">{% trans "Наукові конференції" %}</a></li>
+
+                    <li><a href="/info">{% trans "Наукові семінари" %}</a></li>
+
+                    <li><a href="/info">{% trans "Наукові журнали" %}</a></li>
+
+                </ul>
+
+            </li>
+
+            <li><a href="/contacts">{% trans "Контакти" %}</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<div class="site-overlay visible-xs-block visible-sm-block"></div>
+
+<div id="container" class="mobile-menu visible-xs-block visible-sm-block">
+    <a href="/" class="logo-mob">
+        <img src="{% static 'img/logo-new.png'%}" class="logo-m-img" alt="">
+        <h2 class="logo-m-text">{% trans "Факультет комп'ютерних наук та кібернетики" %}</h2>
+    </a>
+    <div class="menu-btn"><img src="{% static 'img/menu-icon.png'%}" alt="">
+        <span class="menu-text">menu</span></div>
+</div>
+
+{% block content %}{% endblock %}
+
+<footer class="footer">
+    <div class="main-footer-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 col-md-3">
+                    <div class="btn-footer center-block">
+                        <div class="footer-text-block">
+                            <div class="image-block hidden-xs">
+                                <img src='{% static "img/map2.png"%}' class="footer-icon" alt="">
+                            </div>
+                            <div class="link-block">
+                                <a href="#" class="footer-link-text animate-hr">{% trans "Карта сайту" %}</a>
+                            </div>
+                        </div>
+                        <div class="footer-text-block">
+                            <div class="image-block hidden-xs">
+                                <img src='{% static "img/webka1.png" %}' class="footer-icon web" alt="">
+                            </div>
+                            <div class="link-block">
+                                <a href="#" class="footer-link-text animate-hr">{% trans "Веб-камера" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn-footer second-block-links center-block">
+                        <div class="footer-text-block">
+                            <div class="link-block no-image">
+                                <a href="#" class="footer-link-text animate-hr">{% trans "Документи" %}</a>
+                            </div>
+                        </div>
+                        <div class="footer-text-block">
+                            <div class="link-block no-image">
+                                <a href="/departments" class="footer-link-text animate-hr">{% trans "Кафедри" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-4">
+                    <div class="address-block center-block">
+                        <div class="footer-no-link-center">
+                            <p class="footer-link-text no-link">{% trans "Адреса" %}</p>
+                        </div>
+                        <p class="footer-text center-block">Cybernetics Faculty, 03680, Ukraine, Kyiv, 4d Glushkov
+                            Avenue</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="phone-block center-block">
+                        <div class="footer-no-link-center">
+                            <p class="footer-link-text no-link">{% trans "Наші телефони" %}</p>
+                        </div>
+                        <p class="footer-text center-block">+380 (044) 259-01-39</p>
+
+                        <p class="footer-text center-block">+380 (044) 521-35-54</p>
+
+                        <p class="footer-text center-block">+380 (044) 259-01-19</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyright-container">
+                        <p class="copyright">© 2001-2016 Taras Shevchenko National University of Kyiv</p>
+                        <hr class="copyright-hr">
+                        <a href="http://vk.comFaculty" class="link-icon">
+                            <i class="fa fa-vk cp-icon" aria-hidden="true"></i>
+                        </a>
+                        <a href="http://facebook.comFaculty" class="link-icon">
+                            <i class="fa fa-facebook cp-icon" aria-hidden="true"></i>
+                        </a>
+                        <a href="http://youtube.com/userFaculty" class="link-icon">
+                            <i class="fa fa-youtube-play cp-icon" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+
+</body>
+</html>

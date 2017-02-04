@@ -1,0 +1,64 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% load core_tag %}
+{% block navbar %}
+    <div id="left-navbar" class="left-menu-block hidden-xs hidden-sm">
+        <div class="left-menu-close-block">
+            <button id="close-left-navbar" class="btn btn-side-bar">
+                <i class="fa fa-align-left caret-my" aria-hidden="true"></i>
+                ЗАКРИТИ МЕНЮ
+            </button>
+        </div>
+        <div id="menu" class="dop-menu-block">
+            <ul class="cd-accordion-menu animated">
+
+                <li><a href="/programming-contests/1">Всеукраїнські олімпіади</a></li>
+
+                <li><a href="/programming-contests/2">Півфінал чемпіонату світу</a></li>
+            
+                <li><a href="/programming-contests/3">Фінал чемпіонату світу</a></li>
+
+                <li><a href="/other-contests">Інші змагання</a></li>
+
+                <li><a href="/e-olimp">E-olimp</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="open-btn-block">
+        <button id="open-left-navbar" class="btn btn-side-bar open-block">
+            <i class="fa fa-align-justify caret-my" aria-hidden="true"></i>
+            <span>MENU</span>
+        </button>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <table class="table table-striped information-table">
+                            <tr>
+                                <th>Дата</th>
+                                <th>Особовий склад команди факультету комп'ютерних наук та кібернетики</th>
+                                <th class="hidden-xs">Місце</th>
+                            </tr>
+                            {% for p in olimp.get_res %}
+                            <tr>
+                                <td>{{ p.date }}</td>
+                                <td>{{ p.result }}</td>
+                                <td class="hidden-xs">{{ p.plase }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

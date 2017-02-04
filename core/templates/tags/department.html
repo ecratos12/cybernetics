@@ -1,0 +1,12 @@
+{% load i18n %}
+<li class="has-children">
+    <input type="checkbox" name="group-3" id="group-3">
+    <label for="group-3"><a href="/departments" class="no-style">{% trans "Кафедри" %}</a></label>
+
+    <ul>
+    {% for department in items %}
+        <li><a hr ef="#">{% trans "Кафедра Обчислювальної математики" %}</a></li>
+    {% endfor %}
+        
+    </ul>
+</li>

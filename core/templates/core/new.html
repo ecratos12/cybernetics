@@ -1,0 +1,73 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="site-overlay visible-xs-block visible-sm-block"></div>
+
+<div id="container" class="mobile-menu visible-xs-block visible-sm-block">
+    <a href="/cybernetics/index.html" class="logo-mob">
+        <img src="img/logo.png" class="logo-m-img" alt="">
+        <h2 class="logo-m-text">Факультет комп'ютерних наук та кібернетики</h2>
+    </a>
+    <div class="menu-btn"><img src="{% static 'img/menu-icon.png'%}" alt="">
+        <span class="menu-text">menu</span></div>
+</div>
+
+<div class="new">
+    <div class="new-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="active-new center-block fade-bottom">
+                        <h2 class="header-text slide-bottom" data-plugin-options='{"reverse":false}'>{{ new.title }}</h2>
+
+                        <p class="date slide-bottom" data-plugin-options='{"reverse":false}'>додано {{ new.pub_date }}</p>
+
+                        <div class="image-block">
+                            <img src="/{{ new.photo.url }}" class="news-image" alt="">
+                        </div>
+                        <div class="new-text-block">
+                            <p class="text-new">{{ new.text|safe }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="news news-other">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="header-news center-block fade-bottom">
+                        <h2 class="header-title slide-bottom" data-plugin-options='{"reverse":false}'>Інші новини</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for n in news %}
+                <div class="col-sm-4">
+                    <div class="news-block center-block">
+                        <a href="news/{{ n.id }}">
+                            <div class="image-block">
+                                <img src="{{ n.photo.url }}" class="news-image" alt="">
+                            </div>
+                            <h3 class="header-title">{{ n.title }}</h3>
+                        </a>
+
+                        <p class="date">додано {{ n.pub_date }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="news-block-btn">
+                        <button class="btn btn-news">Всі новини</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% load i18n %}
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <div class="contact-block">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h2 class="header-text">{% trans "Контакти" %}</h2>
+                                            <div class="info-contacts">
+                                                <p class="text-with-information">
+                                                    {% trans "Київський національний університет
+                                                                                                        імені Тараса Шевченка,
+                                                                                                        Факультет кібернетики,
+                                                                                                        03680, Україна, м. Київ,
+                                                                                                        пр. Академіка Глушкова, 4д. (раніше 2 к6)
+                                                                                                        станція метро "Виставковий центр"" %}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <h2 class="header-text">Web</h2>
+                                            <div class="info-contacts">
+                                                <a href="/cybernetics/index.html" class="text-with-information">{% trans "Офіційна сторінка факультету" %}</a>
+                                                <a href="http://facebook.com/CyberneticsFaculty" class="text-with-information">{% trans "Сторінка факультету в" %} <i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                                                <a href="http://facebook.com/CyberneticsFaculty" class="text-with-information">{% trans "Сторінка факультету в" %} <i class="fa fa-vk" aria-hidden="true"></i></a>
+                                                <a href="http://facebook.com/CyberneticsFaculty" class="text-with-information">{% trans "Сторінка факультету в" %} <i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <h2 class="header-text">{% trans "Телефони" %}</h2>
+                                    <div class="info-contacts">
+                                        <p class="text-with-information">
+                                        {% for c in contacts %}
+                                            {{ c.desc }}: <br />
+                                            {{ c.phone }}<br /><br />
+                                        {% endfor %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-map">
+                            <div id="map" class="map"></div>
+                            <div id="save-widget">
+                                <strong>{% trans "КНУ ім. Тараса Шевченка" %}</strong>
+                                <strong>{% trans "Факультет кібернетики" %}</strong>
+                                <a href="https://www.google.com/maps/dir//50.383071,30.470296/@50.3856054,30.4665489,16z?hl=uk">
+                                    <div class="bg-icon"></div>
+                                    <div class="text-save">{% trans "Маршрут" %}</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/map.js' %}"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQmLO0DR2dwVhqFzP6WgEMh4_-XV87LcA&callback&signed_in=true&callback=initMap"></script>
+{% endblock %}

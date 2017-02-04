@@ -1,0 +1,96 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% load core_tag %}
+{% block navbar %}
+    <div id="left-navbar" class="left-menu-block hidden-xs hidden-sm">
+        <div class="left-menu-close-block">
+            <button id="close-left-navbar" class="btn btn-side-bar">
+                <i class="fa fa-align-left caret-my" aria-hidden="true"></i>
+                ЗАКРИТИ МЕНЮ
+            </button>
+        </div>
+        <div id="menu" class="dop-menu-block">
+            <ul class="cd-accordion-menu animated">
+
+                
+
+
+                <li class="has-children">
+                    <input type="checkbox" name="group-2" id="group-2">
+                    <label for="group-2"><a href="/history" class="no-style">Дослідницькі групи</a></label>
+
+                    <ul>
+                        <li><a href="/history/personality">НДС "Проблем системного аналізу"</a></li>
+                        <li><a href="/history/personality">НДС "Проблем програмування"</a></li>
+                        <li><a href="/history/personality">НДС "Теоретичної кібернетики"</a></li>
+                        <li><a href="/history/personality">НДЛ "Ймовірнiсно-статистичних методів"</a></li>
+                        <li><a href="/history/personality">НДЛ "Обчислювальних методів в механіці суцільних середовищ"</a></li>
+                        <li><a href="/history/personality">НДЛ "Моделювання та Оптимізації"</a></li>
+                        <li><a href="/history/personality">НДЛ "Високопродуктивних систем обробки інформації"</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-children">
+                    <input type="checkbox" name="group-3" id="group-3">
+                    <label for="group-3"><a href="/departments" class="no-style">Спеціалізовані вчені ради</a></label>
+
+                    <ul>
+                        <li><a href="/departments/1">Спецрада: Д 26.001.09</a></li>
+                        <li><a href="/departments/2">Спецрада: Д 26.001.35</a></li>
+                    
+                    </ul>
+                </li>
+
+               
+
+                <li><a target="_blank" href="http://rmn.knu.ua/">Рада молодих вчених</a></li>
+
+                <li><a target="_blank" href="http://science.univ.kiev.ua/">НДЧ Університету</a></li>
+
+                <li><a href="/conf">Наукові конференції</a></li>
+
+                <li><a href="/seminars">Наукові семінари</a></li>
+
+                <li><a href="/madazine">Наукові журнали</a></li>
+
+                
+
+            </ul>
+        </div>
+    </div>
+    <div class="open-btn-block">
+        <button id="open-left-navbar" class="btn btn-side-bar open-block">
+            <i class="fa fa-align-justify caret-my" aria-hidden="true"></i>
+            <span>MENU</span>
+        </button>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">{{ article.title}}</h2>
+
+                        <div class="block-photo">
+                            {% for photo in article.image.all %}
+                            <img src="{{ photo.photo.url }}" class="image-information" alt="">
+
+                            <div class="info-photo">
+                                <p>{{ photo.alt }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {{ article.text|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

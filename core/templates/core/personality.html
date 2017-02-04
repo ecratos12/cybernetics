@@ -1,0 +1,37 @@
+{% extends "core/article.html" %}
+{% block content %}
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">Визначні особистості</h2>
+                        <div class="card-block">
+                        {% for duet in result %}
+                            <div class="row">
+                            	{% for p in duet%}
+                                <div class="col-sm-6">
+                                    <div class="card-center center-block">
+                                        <div class="information-card">
+                                            <div class="photo-block">
+                                                <img src="/{{p.photo.url}}" alt="" class="card-image">
+                                            </div>
+                                            <div class="info-text-block">
+                                                <a href="" class="header-text name">{{ p.name }}</a>
+                                                <p class="info-name">— {{p.text}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

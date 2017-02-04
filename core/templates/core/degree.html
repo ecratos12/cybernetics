@@ -1,0 +1,75 @@
+{% load i18n %}
+{% extends "core/admission.html" %}
+{% block content %}
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+       
+                <div class="main-content-block">
+                    <div class="information">
+                        <h2 class="header-text center-block">{{ degree.name }}</h2>
+                        {{ degree.text|safe}}
+
+                        {% if degree.statistic_need %}
+                        <table class="table table-striped information-table">
+                            <tr>
+                                <th class="hidden-xs">{% trans "Галузь знань" %}</th>
+                                <th>{% trans "Спеціальність" %}</th>
+                                <th class="hidden-xs">{% trans "Освітня програма" %}</th>
+                                <th>{% trans "Ліцензований обсяг" %}</th>
+                                <th>{% trans "Вартість одного року навчання, грн" %}</th>
+                              </tr>
+                            {% for s in degree.get_specialization %}
+                            <tr>
+                                <td rowspan="{{ s.get_children|length }}" class="big-table-block hidden-xs">{{ s.name }}</td>
+                                {% if s.get_children|length == 1 %}
+                                {% for p in s.get_children %}
+                                <td>{{ p.name }}</td>
+                                <td class="hidden-xs">{{ p.description }}</td>
+                                <td>{{ p.day_student }}</td>
+                                <td>{{ p.night_student }}</td>
+                            </tr>
+                            	{% endfor %}
+                           	{% else %}
+                                {% for p in s.get_children %}
+                             {% if not forloop.counter0 == 0 %}<tr>{% endif %}
+                                <td>{{ p.name }}</td>
+                                <td class="hidden-xs">{{ p.description }}</td>
+                                <td>{{ p.day_student }}</td>
+                                <td>{{ p.night_student }}</td>
+                            </tr>
+                            	{% endfor %}
+                           	{% endif %}
+                            	
+                            {% endfor %}
+                        </table>
+                        <h4 class="header-text-3">{% trans "Конкурс по роках" %}</h4>
+
+                        <table class="table table-striped information-table">
+                            <tr>
+                                <th rowspan="2">{% trans "Напрями підготовки" %}</th>
+                                <th colspan="6">{% trans "Конкурс по роках" %}</th>
+                            </tr>
+                            <tr>
+ 								{% for y in year %}
+ 								<td>{{ y }}</td>
+ 								{% endfor %}
+                            </tr>
+                            {% for s in stat %}
+                            <tr>
+                                <td>{{ s.name }}</td>
+                                {% for p in s.year.all %}
+                                <td>{{ p.value }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </table>
+                     {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
